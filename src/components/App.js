@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import youtube from "../api/youtube";
 import SearchBar from "./SearchBar";
+import VideoList from "./VideoList";
 
 const initContentRender = "React";
 
@@ -44,7 +45,7 @@ class App extends React.Component {
               VideoDetail
             </Grid>
             <Grid item xs={12} md={4}>
-              VideoList
+            <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
             </Grid>
           </Grid>
         </Grid>
