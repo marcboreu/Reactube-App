@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import youtube from "./api/youtube";
+import youtube from "../api/youtube";
+import SearchBar from "./SearchBar";
 
 const initContentRender = "React";
 
@@ -27,7 +28,6 @@ class App extends React.Component {
         q: termFromSearchBar
       }
     })
-
     this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] })
   }
 
@@ -38,7 +38,7 @@ class App extends React.Component {
         <Grid item xs={12}>
           <Grid container spacing={8}>
             <Grid item xs={12}>
-             SearchBar
+             <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={12} md={8}>
               VideoDetail
