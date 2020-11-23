@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import youtube from "../api/youtube";
 import SearchBar from "./SearchBar";
 import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 
-const initContentRender = "React";
 
 class App extends React.Component {
   
@@ -15,8 +15,8 @@ class App extends React.Component {
 
   
 
-  componentDidMount(initContentRender) {
-      this.handleSubmit(initContentRender);
+  componentDidMount() {
+      this.handleSubmit("react");
   }
 
   onVideoSelect = (video) => {
@@ -42,7 +42,7 @@ class App extends React.Component {
              <SearchBar onFormSubmit={this.handleSubmit} />
             </Grid>
             <Grid item xs={12} md={8}>
-              VideoDetail
+              <VideoDetail video={selectedVideo}/>
             </Grid>
             <Grid item xs={12} md={4}>
             <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
